@@ -16,6 +16,7 @@ function router() {
             break;
 
         case "/create-listing.html":
+        case "/create-listing":
             allPages();
             createListingPage();
             break;
