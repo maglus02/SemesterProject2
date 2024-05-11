@@ -38,6 +38,9 @@ export function updateListingBids(listing) {
             bidsContainer.appendChild(bidElement);
         });
     } else {
-        bidsContainer.innerHTML = '<p class="sign-in-msg">Sign in to view bids!</p>'
+        bidsContainer.innerHTML = `<div class="alert alert-info m-2" role="alert">
+        Sign in to view bids!
+      </div>
+      `
     }
 }
