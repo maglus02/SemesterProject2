@@ -10,9 +10,9 @@ export async function updateProfileAPI() {
     updateProfileForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        const avatarURL = updateProfileForm.elements['avatarInput'].value;
-        const bannerURL = updateProfileForm.elements['bannerInput'].value;
-        const bio = updateProfileForm.elements['bioInput'].value;
+        const avatarURL = updateProfileForm.elements['avatarInputUP'].value;
+        const bannerURL = updateProfileForm.elements['bannerInputUP'].value;
+        const bio = updateProfileForm.elements['bioInputUP'].value;
 
         const requestData = {};
 
