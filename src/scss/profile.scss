@@ -1,0 +1,79 @@
+@import "variables";
+/* /src/scss/_variables.scss */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+section.profile {
+    margin-top: 20px;
+
+    .col-md-8 {
+        .card {
+            .card-body {
+                background-color: $input-color;
+
+                .banner {
+                    height: 180px;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 6px;
+                }
+
+                .pfp {
+                    object-fit: cover;
+                    height: 120px;
+                    width: 120px;
+                    border: 4px $darker-gray solid;
+                    margin-top: -60px;
+                }
+
+                .profile-name {
+                    margin-bottom: 0px;
+                }
+
+                button.logOutBtn {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+section.listings {
+    h2 {
+        font-size: 20px;
+    }
+
+    p.no-listings {
+        color: $gray;
+        margin: 10px 0px;
+    }
+}
+
+#signOut {
+  p {
+    margin: 10px 0px;
+  }  
+}
+
+/*Transitions*/
+.profile-name, button, div {
+    transition: 0.3s;
+}
+
+@include media-breakpoint-down(lg) {
+    section.profile {
+        .col-md-8 {
+            .card {
+                .card-body {
+                    .profile-name {
+                        margin-bottom: 10px;
+                    }
+
+                    button.logOutBtn {
+                        margin-left: 0px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

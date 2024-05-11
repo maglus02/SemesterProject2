@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="dist/css/profile.css">
+    <link rel="stylesheet" href="dist/css/index.css">
+    <script src="https://kit.fontawesome.com/8404d11a1b.js" crossorigin="anonymous"></script>
+    <title>Profile | BidWise</title>
+    <link rel="shortcut icon" href="src/media/images/favicon.ico" type="image/x-icon">
+    <script type="module" src="index.js"></script>
+    <script type="module" src="profile.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid wrapper">
+        <nav class="navbar navbar-expand-lg bg-body">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="./">BidWise</a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Auctions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link create-listing" href="create-listing.html">Create Listing</a>
+                        </li>
+                    </ul>
+                    <div class="col-lg-3 col-12 me-2">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            <input class="form-control  searchInput" style="border-left: none;" placeholder="Search for auctions"
+                                aria-label="Search">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary userButton" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">Sign Up</button>
+                </div>
+            </div>
+        </nav>
+        <section class="profile">
+            <div class="container-fluid">
+                <h1>Profile</h1>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <span class="error-message"><!--Error message--></span>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="spinner-border loadingSpinner" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="listings">
+            <div class="container-fluid">
+                <h2>Your listings:</h2>
+                <div class="listingsContainer row">
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container-fluid wrapper">
+            <div class="row">
+                <div class="col-md-2">
+                    <p class="footer-logo">BidWise</p>
+                </div>
+                <div class="col-md-2">
+                    <h2>BidWise</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h2>Terms & Policies</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h2>How it works</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Create a listing</a></li>
+                        <li><a href="#">Purchasing an item</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h2>Helpful links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <p class="copyright">&copy; BidWise 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="errorToast"
+        class="toast position-fixed bottom-0 start-50 translate-middle-x align-items-center text-bg-danger border-0"
+        role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1111;">
+        <div class="toast-body">
+        </div>
+    </div>
+
+    <!--Update profile modal-->
+    <div class="modal fade" id="updateProfile" tabindex="-1" aria-labelledby="updateProfileLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="UpdateProfileLabel">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="updateProfile">
+                        <div class="form-floating mb-3">
+                            <input type="url" class="form-control" id="avatarInput" placeholder="URL to new avatar">
+                            <label for="avatarInput">URL to new avatar</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="url" class="form-control" id="bannerInput" placeholder="URL to new banner">
+                            <label for="bannerInput">URL to new banner</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="New bio" id="bioInput"
+                                style="height: 100px"></textarea>
+                            <label for="bioInput">New bio</label>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary p-2" data-bs-dismiss="modal">Update
+                                Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Sign Out modal-->
+    <div class="modal fade" id="signOut" tabindex="-1" aria-labelledby="signOutLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signOutLabel">Sign Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <p>Are you sure you want to sign out?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary p-2" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger p-2 logoutConfirmBtn" data-bs-dismiss="modal">Sign
+                        Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Sign Up modal-->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="signUp">
+                        <p class="text-muted">Already have an account? <a href="#" data-bs-toggle="modal"
+                                data-bs-target="#signInModal">Sign in here</a></p>
+                        <hr>
+                        <h5>Account Information</h5>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nameInput" placeholder="Name" name="name"
+                                required>
+                            <label for="nameInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
+                                name="email" required>
+                            <label for="emailInput">Email address</label>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Password"
+                                name="password" required pattern=".{8,}" required
+                                title="Password must be at least 8 characters">
+                            <label for="passwordInput">Password</label>
+                        </div>
+                        <hr>
+                        <h5>Profile Customization</h5>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="avatarInput" placeholder="Avatar (URL)"
+                                name="avatarURL">
+                            <label for="avatarInput">Avatar (URL)</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="bannerInput" placeholder="Banner (URL)"
+                                name="bannerURL">
+                            <label for="bannerInput">Banner (URL)</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Bio" id="bioInput" style="height: 100px"
+                                name="bio"></textarea>
+                            <label for="bioInput">Bio</label>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary p-2" data-auth="register">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Sign In modal-->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="signIn">
+                        <p class="text-muted">Don't have an account? <a href="#" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">Sign up here</a></p>
+                        <hr>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
+                                name="email" required>
+                            <label for="emailInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="passwordInput" placeholder="Password"
+                                name="password" required pattern=".{8,}" required
+                                title="Password must be at least 8 characters">
+                            <label for="passwordInput">Password</label>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary p-2" data-auth="login">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
