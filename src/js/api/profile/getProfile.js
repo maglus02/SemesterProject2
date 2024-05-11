@@ -33,6 +33,8 @@ export async function fetchUserProfile() {
         const profileElement = injectProfileData(profileData);
         profileContainer.appendChild(profileElement);
 
+        document.title = `@${profileData.name} | BidWise`;
+
         loadingSpinner.style.display = "none";
     } catch (error) {
         handleGlobalError(error);
