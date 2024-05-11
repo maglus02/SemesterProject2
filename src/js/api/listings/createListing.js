@@ -12,7 +12,8 @@ export async function createListing() {
 
     if (loggedIn == false) {
         createListingForm.innerHTML = `<div class="alert alert-info" role="alert">
-        You must be signed in to create a listing!
+        You must be <a href="#" data-bs-toggle="modal"
+        data-bs-target="#signInModal" class="alert-link">signed in</a> to create a listing!
       </div>`
     }
 
