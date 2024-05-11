@@ -1,6 +1,7 @@
 import { handleGlobalError } from "../../utils/errorHandler.js";
 import { API_AUTH, API_BASE, API_REGISTER } from "../constants.js";
 import { authFetch } from "../fetch.js";
+import { login } from "./login.js";
 
 /**
  * Gets input from the register page, and uses the API to register account and returns with the API response.
@@ -33,11 +34,11 @@ export async function register(name, email, password, avatarURL, bannerURL, bio)
         });
 
         if (response.ok) {
-            const data = response.json();
+            await login(email, password);
 
             window.location.reload();
 
-            return data;
+            return response.json();
         } else {
             const errorData = await response.json();
             throw new Error("Could not register the account. " + errorData.errors[0].message + ".");
