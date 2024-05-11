@@ -1,0 +1,223 @@
+@import "variables";
+/* /src/scss/_variables.scss */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+section.listing {
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+    .col-lg-9 img,
+    .col-lg-3 .bids,
+    .col-lg-9 .info,
+    .col-lg-9 .desc {
+        background-color: $input-color;
+        border-radius: 6px;
+    }
+
+    .col-lg-9 {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+        }
+
+        .info {
+            margin-top: 20px;
+
+            .content {
+                .content-info {
+                    width: 100%;
+
+                    .sub-info {
+                        p {
+                            margin: 0px;
+                            font-size: 17px;
+                        }
+
+                        .icon-name {
+                            color: $gray;
+                            margin-right: 10px;
+
+                            i {
+                                font-size: 20px;
+                                margin-right: 3px;
+                            }
+                        }
+                    }
+                }
+
+                .bid-button {
+                    display: none;
+                    
+                    button {
+                        background-color: $primary;
+                        border: none;
+                        border-radius: 6px;
+                        font-size: 17px;
+                        width: 100px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+
+        .desc {
+            margin-top: 20px;
+
+            h2 {
+                font-size: 20px;
+                font-weight: 500;
+                color: $gray;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .col-lg-3 {
+        .bids {
+            margin-left: 20px;
+            height: 100%;
+            max-height: 587px;
+            overflow: auto;
+
+            h2 {
+                text-align: center;
+                font-size: 22px;
+                padding-top: 15px;
+                padding-bottom: 5px;
+            }
+
+            .sign-in-msg {
+                text-align: center;
+                color: $danger;
+                font-weight: 500;
+            }
+
+            .bid {
+                background-color: $footer-bg;
+                margin: 10px;
+                border-radius: 6px;
+
+                .content {
+                    .left {
+                        display: flex;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            object-fit: cover;
+                        }
+
+                        .user {
+                            margin: 0;
+                            margin-left: 10px;
+                            margin-top: 13px;
+                        }
+                    }
+
+                    .right {
+                        display: flex;
+
+                        .amount {
+                            margin-top: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Transitions*/
+.col-lg-3,
+.col-lg-9,
+p,
+img,
+.bids, button, i {
+    transition: 0.3s;
+}
+
+@include media-breakpoint-down(xxl) {
+    section.listing {
+        .col-lg-3 {
+            .bids {
+                .bid {
+                    .content {
+                        .left {
+                            img {
+                                display: none;
+                            }
+
+                            .user {
+                                margin-left: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    section.listing {
+        .col-lg-3 {
+            .bids {
+                margin-left: 0px;
+                margin-top: 20px;
+
+                .bid {
+                    .content {
+                        .left {
+                            img {
+                                display: block;
+                            }
+
+                            .user {
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .col-lg-9 {
+            .info {
+                .content {
+                    .bid-button {
+                        button {
+                            width: 100%;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    section.listing {
+        .col-lg-9 {
+            .info {
+                .content {
+                    .content-info {    
+                        .sub-info {
+                            .icon-name {
+                                span {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

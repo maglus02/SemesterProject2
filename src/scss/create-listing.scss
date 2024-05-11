@@ -1,0 +1,33 @@
+@import "variables";
+/* /src/scss/_variables.scss */
+
+section.create-listing {
+    margin-top: 20px;
+
+    form {
+        .form-group {
+            margin: 20px 0px;
+
+            .form-control {
+                color: $white;
+            }
+        }
+
+        button {
+            width: 100%;
+            font-weight: 500;
+            margin-bottom: 90px;
+        }
+    }
+}
+
+/*Transitions*/
+form,
+input,
+.form-group,
+.form-control,
+div.col-lg-5,
+.col-lg-3,
+button {
+    transition: 0.3s;
+}
