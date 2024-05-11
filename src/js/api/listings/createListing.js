@@ -1,9 +1,20 @@
+import { isLoggedIn } from "../../ui/views/loggedIn.js";
 import { handleGlobalError } from "../../utils/errorHandler.js";
 import { API_BASE, API_LISTINGS } from "../constants.js";
 import { authFetch } from "../fetch.js";
 
 export async function createListing() {
     const createListingForm = document.querySelector('.create-listing form');
+
+    const loggedIn = await isLoggedIn();
+
+    console.log(loggedIn)
+
+    if (loggedIn == false) {
+        createListingForm.innerHTML = `<div class="alert alert-info" role="alert">
+        You must be signed in to create a listing!
+      </div>`
+    }
 
     createListingForm.addEventListener('submit', async function(event) {
         event.preventDefault();
