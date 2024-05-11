@@ -1,4 +1,3 @@
-import { allPages } from "../../routes/allPages.js";
 import { getListingDetails } from "../../routes/listingPage.js";
 import { handleGlobalError } from "../../utils/errorHandler.js";
 import { API_BASE, API_LISTINGS } from "../constants.js";

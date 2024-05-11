@@ -47,4 +47,3 @@ Hosted demo :  https://cheery-bavarois-317169.netlify.app
 ## Built with
 
 - [Bootstrap](https://getbootstrap.com/) - Front-end framework for building responsive and mobile-first websites
-- [Node.js](https://nodejs.org/) - JavaScript runtime for server-side development
