@@ -11848,8 +11848,12 @@ textarea.form-control-lg {
 section.profile {
   margin-top: 20px;
 }
+section.profile .col-md-8 .card {
+  border-color: transparent;
+}
 section.profile .col-md-8 .card .card-body {
   background-color: #2F2F2F;
+  border-radius: 6px;
 }
 section.profile .col-md-8 .card .card-body .banner {
   height: 180px;

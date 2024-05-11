@@ -7,8 +7,11 @@ section.profile {
 
     .col-md-8 {
         .card {
+            border-color: transparent;
+            
             .card-body {
                 background-color: $input-color;
+                border-radius: 6px;
 
                 .banner {
                     height: 180px;
