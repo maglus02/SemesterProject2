@@ -8,7 +8,7 @@ export async function getFeaturedListing() {
     const listingContainer = document.querySelector(".auctionContainer");
 
     try {
-        const response = await authFetch(API_BASE + API_LISTINGS + "/d7a7ff9d-4759-4524-be26-15b32c3bf4c6");
+        const response = await authFetch(API_BASE + API_LISTINGS + "/00b2ede8-057e-49ec-b399-b5e0b37a6881");
 
         if (!response.ok) {
             const errorData = await response.json();
