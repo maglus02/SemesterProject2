@@ -1,6 +1,8 @@
 # Semester Project 2
 ### This is my auction website called BidWise!
 
+![image](https://i.imgur.com/TXBjOUj.jpeg)
+
 It's using the [Noroff API V2](https://docs.noroff.dev/docs/v2/) for authentication and auction data. It's made with [Bootstrap](https://getbootstrap.com/) CSS Framework for a modern and simplistic design style. 
 
 ## Features
@@ -17,7 +19,14 @@ It's using the [Noroff API V2](https://docs.noroff.dev/docs/v2/) for authenticat
 
 Hosted demo :  https://cheery-bavarois-317169.netlify.app
 
-## Installation
+
+## Built with
+
+- [Bootstrap](https://getbootstrap.com/) - Front-end framework for building responsive and mobile-first websites
+
+## Getting Started
+
+### Installation
 
 
 1. **Clone the repository:**
@@ -38,12 +47,14 @@ Hosted demo :  https://cheery-bavarois-317169.netlify.app
    npm install
    ```
    
-4. **Start the application**
-   
-   ```sh
-   npm start
-   ```
+### Running
 
-## Built with
+To run the app, run the following command:
+```sh
+npm start
+```
 
-- [Bootstrap](https://getbootstrap.com/) - Front-end framework for building responsive and mobile-first websites
+## Contact
+
+Get in touch with me: 
+- [Email](mailto:maglus52498@stud.noroff.no)
