@@ -56,5 +56,5 @@ npm start
 
 ## Contact
 
-Get in touch with me: 
-- [Email](mailto:maglus52498@stud.noroff.no)
+For questions or feedback, reach out via:
+- [Email](mailto:contact@mase.addy.io)
